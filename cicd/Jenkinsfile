@@ -1,0 +1,20 @@
+node {
+    stage("1. Checkout "){
+        checkout scm
+    }
+    stage("2.Dotnet Build"){
+        sh"""
+        java -version
+        dotnet restore
+        dotnet publish -c Release -o ./publish
+        """
+    }
+    stage("3.Build Image"){
+        app = docker.build("vietanh271098/dotnet:test", "-f ../samples/aspnetapp/Dockerfile .")
+    }
+    stage("4.Push Image"){
+        docker.withRegistry("https://", 'credential-docker'){
+            app.push()
+        }
+    }
+}
