@@ -5,8 +5,8 @@ node {
     stage("2.Dotnet Build"){
         sh"""
         java -version
-        dotnet restore
-        dotnet publish -c Release -o ./publish
+        /usr/local/share/dotnet restore
+        /usr/local/share/dotnet publish -c Release -o ./publish
         echo HelloWorld
         """
     }
