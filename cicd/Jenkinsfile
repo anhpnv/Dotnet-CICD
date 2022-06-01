@@ -5,6 +5,7 @@ node {
     stage("2.Dotnet Build"){
         sh"""
         java -version
+        cd samples/aspnetapp/aspnetapp
         /usr/local/share/dotnet/dotnet restore
         /usr/local/share/dotnet/dotnet publish -c Release -o ./publish
         echo HelloWorld
