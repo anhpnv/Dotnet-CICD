@@ -8,14 +8,11 @@ node {
         cd samples/aspnetapp/aspnetapp
         /usr/local/share/dotnet/dotnet restore
         /usr/local/share/dotnet/dotnet publish -c Release -o ./publish
-        echo HelloWorld
-        
-        export PATH=/usr/bin/local:$PATH
-        echo $PATH
+        pwd
         """
     }
     stage("3.Build Image"){
-        app = docker.build("vietanh271098/dotnet:test", "-f ../samples/aspnetapp/Dockerfile .")
+        app = docker.build("vietanh271098/dotnet:test", "-f samples/aspnetapp/Dockerfile .")
     }
     stage("4.Push Image"){
         docker.withRegistry("https://", 'credential-docker'){
