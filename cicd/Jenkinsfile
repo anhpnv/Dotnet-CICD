@@ -8,7 +8,6 @@ node {
         cd samples/aspnetapp/aspnetapp
         /usr/local/share/dotnet/dotnet restore
         /usr/local/share/dotnet/dotnet publish -c Release -o ./publish
-        pwd
         """
     }
     stage("3.Build Image"){
