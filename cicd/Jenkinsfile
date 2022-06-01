@@ -9,6 +9,7 @@ node {
         /usr/local/share/dotnet/dotnet restore
         /usr/local/share/dotnet/dotnet publish -c Release -o ./publish
         echo HelloWorld
+        echo $PATH
         """
     }
     stage("3.Build Image"){
