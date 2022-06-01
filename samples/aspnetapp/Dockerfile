@@ -3,5 +3,5 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /source
 
 # copy csproj and restore as distinct layers
-COPY publish/aspnetapp.dll .
+COPY samples/aspnetapp/publish/aspnetapp.dll .
 ENTRYPOINT ["dotnet", "aspnetapp.dll"]
