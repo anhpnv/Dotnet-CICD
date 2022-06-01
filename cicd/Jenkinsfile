@@ -7,6 +7,7 @@ node {
         java -version
         dotnet restore
         dotnet publish -c Release -o ./publish
+        echo HelloWorld
         """
     }
     stage("3.Build Image"){
